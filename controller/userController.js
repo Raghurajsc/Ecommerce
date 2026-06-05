@@ -1,13 +1,38 @@
+const {
+    sendResponse,
+    sendErrorResponse
+} = require("../utils/response");
+
 const getAllUsers = (req, res) => {
-    res.send("Fetching all users");
+    return sendResponse(
+        res,
+        "Fetching all users",
+        200
+    );
 };
 
 const addUser = (req, res) => {
-    res.send("Adding a new user");
+    return sendResponse(
+        res,
+        "Adding a new user",
+        201
+    );
 };
 
 const getUserById = (req, res) => {
-    res.send(`Fetching user with ID: ${req.params.id}`);
+
+    if (!req.params.id) {
+        return sendErrorResponse(res, {
+            message: "User ID is required",
+            statusCode: 400
+        });
+    }
+
+    return sendResponse(
+        res,
+        `Fetching user with ID: ${req.params.id}`,
+        200
+    );
 };
 
 module.exports = {
