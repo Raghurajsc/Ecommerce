@@ -5,8 +5,11 @@ const productRoutes = require("./routes/productRoutes");
 const cartRoutes = require("./routes/cartRoutes");
 
 const app = express();
+const path=require("path");
 
 app.use(express.json());
+
+app.use(express.static(path.join(__dirname,"public")));
 
 
 app.use("/users", userRoutes);

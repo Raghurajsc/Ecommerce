@@ -2,8 +2,8 @@ const getAllProducts = () => {
     return "Fetching all products";
 };
 
-const addProduct = () => {
-    return "Adding a new product";
+const addProduct = (productName) => {
+    return `Product Added: ${productName}`;
 };
 
 const getProductById = (id) => {
